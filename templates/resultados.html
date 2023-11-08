@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <p class="text-base leading-relaxed space-y-4">
+        Enfoque simple de red neuronal utilizando operaciones matriciales básicas en Python, sin el uso de bibliotecas de aprendizaje profundo. Comencé procesando datos reales de un archivo CSV que contiene información sobre la producción de papas por distrito. El código convierte los valores del archivo CSV en porcentajes relativos a la suma total de cada fila, lo que permite un análisis más significativo.
+    
+        Luego, simulé la red neuronal utilizando una estructura de una capa oculta con pesos aleatorios. Utilicé la función de activación sigmoide para introducir no linealidades en la red. Aunque el enfoque es básico, la implementación demuestra cómo una red neuronal puede procesar datos y proporcionar resultados de salida que reflejan la naturaleza de los datos de entrada.
+    
+        Al final, proporcioné una interpretación que resume los porcentajes calculados en relación con la suma total de cada fila, así como la salida de la red neuronal para los datos de entrada procesados. Si bien este enfoque es simplificado, nos permite comprender los conceptos fundamentales de una red neuronal y cómo procesa datos para generar resultados significativos.
+    </p>        
+    <p class="text-sm hover:text-base">
+        <br> Dataset de la cosecha de la papa: <br>
+     </p>
+     <br>
+     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+         <tr class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+             <!-- Encabezados de la tabla -->
+             <th align="center">District</th>
+             <th align="center">2003/2004</th>
+             <th align="center">2004/2005</th>
+             <th align="center">2005/2006</th>
+             <th align="center">2006/2007</th>
+             <th align="center">2007/2008</th>
+             <th align="center">2008/2009</th>
+             <th align="center">2009/2010</th>
+             <th align="center">2010/2011</th>
+             <th align="center">2011/2012</th>
+             <th align="center">2012/2013</th>
+             <th align="center">2013/2014</th>
+             <th align="center">2014/2015</th>
+         </tr>
+         {% for resultado in resultados %}
+             <tr >
+                 <!-- Itera sobre cada elemento de la fila y crea una celda en la tabla -->
+                 {% for item in resultado %}
+                     <td align="center">{{ item }}</td>
+                 {% endfor %}
+             </tr>
+         {% endfor %}
+     </table>
+    <p class="text-sm hover:text-base">
+        <br> <h1> Resultados de la red neuronal: </h1> <br>
+    </p>
+    <ul class="text-sm hover:text-base">
+        <p>{{ resultados_red_neuronal.interpretacion }}</p>
+    </ul>             
+    
+</body>
+</html>
